@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect, useRef } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import UserContext from '../context/UserContext.jsx';
+import UserContext from '../context/userContext.jsx';
 
 const Navbar = () => {
   const { user, logout } = useContext(UserContext);

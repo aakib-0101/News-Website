@@ -1,6 +1,6 @@
 import React, { useState, useContext, useRef, useEffect } from 'react';
 import axios from 'axios';
-import UserContext from '../context/UserContext';
+import UserContext from '../context/userContext';
 
 const RichTextEditor = ({ value, onChange }) => {
   const editorRef = useRef(null);

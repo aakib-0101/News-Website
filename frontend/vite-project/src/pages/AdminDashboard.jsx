@@ -2,7 +2,7 @@ import { useState, useEffect, useContext, useRef } from "react";
 import axios from "axios";
 import CreateNews from "./CreateNews";
 import NewsDetails from "./NewsDetails";
-import UserContext from "../context/UserContext";
+import UserContext from "../context/userContext";
 
 const defaultCategories = [
   "Technology", "Business", "Science", "Sports", "Environment", "Politics", "Entertainment", "Health", "Other"

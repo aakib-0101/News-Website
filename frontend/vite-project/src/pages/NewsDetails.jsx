@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import UserContext from '../context/UserContext.jsx';
+import UserContext from '../context/userContext.jsx';
 import axios from 'axios';
 
 const NewsDetails = ({ news: propNews, onBack }) => {
