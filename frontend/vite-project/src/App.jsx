@@ -13,7 +13,7 @@ import SavedArticles from './pages/SavedArticles.jsx';
 import axios from 'axios';
 
 // When developing locally, use localhost. When live, use your future Render URL.
-axios.defaults.baseURL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+axios.defaults.baseURL = 'https://dailynews-backend.onrender.com';
 const App = () => {
   const { user, loading } = React.useContext(UserContext); 
 
