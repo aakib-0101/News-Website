@@ -26,19 +26,15 @@ cloudinary.config({
   api_secret: 'pMPpo11TKdwtFAq2yiw4wa3VJyo'
 });
 
-// 2. Configure Multer to intercept the file into memory (Max 50MB)
 const storage = multer.memoryStorage();
 const upload = multer({ 
   storage, 
   limits: { fileSize: 50 * 1024 * 1024 } 
 });
 
-// 3. Create the API endpoint to handle the file upload
 app.post('/upload', upload.single('file'), (req, res) => {
   if (!req.file) return res.status(400).json({ error: 'No file provided' });
-
   const resourceType = req.file.mimetype.startsWith('video') ? 'video' : 'image';
-
   const uploadStream = cloudinary.uploader.upload_stream(
     { resource_type: resourceType, folder: 'dailynews' },
     (error, result) => {
@@ -49,19 +45,15 @@ app.post('/upload', upload.single('file'), (req, res) => {
       res.json({ url: result.secure_url });
     }
   );
-
   uploadStream.end(req.file.buffer);
 });
 
-// Database Connection (Fixed the rogue semicolon!)
+// Connect to MongoDB in the background
 mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/dailynews')
-  .then(() => {
-    console.log("Connected to MongoDB");
-    // Start server only after DB connects successfully
-    app.listen(port, () => {
-      console.log(`Server is running on port ${port}`);
-    });
-  })
-  .catch((err) => {
-    console.error("MongoDB connection error:", err);
-  });
+  .then(() => console.log("Connected to MongoDB"))
+  .catch((err) => console.error("MongoDB connection error:", err));
+
+// START SERVER IMMEDIATELY so Render detects the open port right away!
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
