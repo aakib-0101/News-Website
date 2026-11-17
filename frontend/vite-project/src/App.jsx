@@ -5,7 +5,7 @@ import Login from './pages/Login.jsx';
 import Home from './pages/Home.jsx';
 import Navbar from './components/navbar.jsx';
 import Dashboard from './pages/AdminDashboard.jsx';
-import UserContext from './context/UserContext.jsx';
+import UserContext from './context/userContext.jsx';
 import NewsDetails from './pages/NewsDetails.jsx';
 import CategoryPage from './pages/CategoryPage.jsx';
 import Profile from './pages/Profile.jsx';
