@@ -23,7 +23,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('${import.meta.env.VITE_API_URL}/user/login', formData);
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/user/login`, formData);
       
       // Pass BOTH the user profile data and the token to your context
       login(response.data, response.data.token);

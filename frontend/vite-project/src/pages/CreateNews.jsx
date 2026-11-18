@@ -105,7 +105,7 @@ const CreateNews = ({ onBack, onCreate }) => {
     formData.append("file", file);
 
     try {
-      const res = await axios.post("${import.meta.env.VITE_API_URL}/upload", formData);
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/upload`, formData);
       callback(res.data.url); // Returns the clean Cloudinary URL
     } catch (err) {
       console.error(err);

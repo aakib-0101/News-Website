@@ -16,7 +16,7 @@ const Home = () => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const response = await axios.get('${import.meta.env.VITE_API_URL}/news');
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/news`);
         const data = response.data.news || response.data;
         
         // Force sort by newest date first so the latest news is ALWAYS at the top

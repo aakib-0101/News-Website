@@ -21,7 +21,7 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.post('${import.meta.env.VITE_API_URL}/user/register', formData)
+    axios.post(`${import.meta.env.VITE_API_URL}/user/register`, formData)
       .then(response => {
         console.log('Registration successful:', response.data);
         navigate('/login');
