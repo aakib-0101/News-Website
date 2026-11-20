@@ -33,6 +33,8 @@ let registerUser = async(req, res) => {
         name: newUser.name,
         email: newUser.email,
         isAdmin: newUser.isAdmin,
+        isSuperAdmin: newUser.isSuperAdmin, // Include the Super Admin flag in the response
+        bookmarks: newUser.bookmarks, // Include bookmarks in the response
         token: token
     });
 }
@@ -56,6 +58,8 @@ let loginUser = async(req, res) => {
         name: existingUser.name,
         email: existingUser.email,
         isAdmin: existingUser.isAdmin,
+        isSuperAdmin: existingUser.isSuperAdmin, // Include the Super Admin flag in the response
+        bookmarks: existingUser.bookmarks, // Include bookmarks in the response
         token: token
     });
 }
