@@ -21,9 +21,9 @@ app.use('/news', newsRouter);
 
 // 1. Configure Cloudinary
 cloudinary.config({
-  cloud_name: 'wgol8gey',
-  api_key: '563454521994185',
-  api_secret: 'pMPpo11TKdwtFAq2yiw4wa3VJyo'
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
 const storage = multer.memoryStorage();
